@@ -21,7 +21,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
     //console.log("Result:", JSON.parse(result));
     var jasonObject = JSON.parse(result);
     for (let element of jasonObject){
-        console.log (element.avatar_url)
+        downloadImageByURL (element.avatar_url,"avatars/" + element.login + ".jpg");
     }
   });
 
@@ -39,7 +39,6 @@ function getRepoContributors(repoOwner, repoName, cb) {
        .pipe(fs.createWriteStream(filePath)); 
        console.log('Downloading image...');
   }
-
   downloadImageByURL("https://avatars2.githubusercontent.com/u/2741?v=3&s=466", "avatars/kvirani.jpg")
   
   
